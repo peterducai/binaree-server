@@ -1,0 +1,38 @@
+project_name: binaree-server
+release:
+  github:
+    owner: peterducai
+    name: binaree-server
+brew:
+  install: bin.install "binaree-server"
+  github:
+    owner: peterducai
+    name: homebrew-tap
+  folder: Formula
+  homepage: https://github.com/peterducai/binaree-server
+  description: management for binary files
+builds:
+- goos:
+  - linux
+  - darwin
+  - windows
+  goarch:
+  - amd64
+  - "386"
+  main: .
+  ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+  binary: binaree-server
+archive:
+  format: tar.gz
+  name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+  files:
+  - licence*
+  - LICENCE*
+  - license*
+  - LICENSE*
+  - readme*
+  - README*
+  - changelog*
+  - CHANGELOG*
+snapshot:
+  name_template: SNAPSHOT-{{ .Commit }}
