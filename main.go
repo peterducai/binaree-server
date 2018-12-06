@@ -21,7 +21,7 @@ import (
 )
 
 const (
-	htmlIndex = `<html><body>Welcome!</body></html>`
+	htmlIndex = `<html><body>Welcome! BINAREE server version ${MAJOR}.${MINOR}.${PATCH}</body></html>`
 	httpPort  = "127.0.0.1:8080"
 )
 
